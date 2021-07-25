@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import com.blackcurrant.poc.web.angular.model.Student;
-import com.blackcurrant.poc.web.angular.service.Student_Service;
+import com.blackcurrant.poc.web.angular.model.Restaurant;
+import com.blackcurrant.poc.web.angular.service.Restaurant_Service;
 
 @RestController
 @CrossOrigin(origins="http://localhost:4200")
@@ -21,36 +23,39 @@ import com.blackcurrant.poc.web.angular.service.Student_Service;
 public class Controller {
 	
 	@Autowired
-	private Student_Service studentservice;
+	private Restaurant_Service restaurantservice;
+
+	private static final Logger logger = LoggerFactory.getLogger(Controller.class);
 	
-	@PostMapping("save-student")
-	public boolean saveStudent(@RequestBody Student student) {
-		 return studentservice.saveStudent(student);
+	@PostMapping("save-restaurant")
+	public boolean saveRestaurant(@RequestBody Restaurant restaurant) {
+		 return restaurantservice.saveRestaurant(restaurant);
 		
 	}
 	
-	@GetMapping("students-list")
-	public List<Student> allstudents() {
-		 return studentservice.getStudents();
+	@GetMapping("restaurants-list")
+	public List<Restaurant> allrestaurants() {
+		logger.info("Received request to load all resturants");
+		 return restaurantservice.getRestaurants();
 	}
 	
 	
-	@DeleteMapping("delete-student/{student_id}")
-	public boolean deleteStudent(@PathVariable("student_id") int student_id,Student student) {
-		student.setStudent_id(student_id);
-		return studentservice.deleteStudent(student);
+	@DeleteMapping("delete-restaurant/{restaurant_id}")
+	public boolean deleteRestaurant(@PathVariable("restaurant_id") int restaurant_id,Restaurant restaurant) {
+		restaurant.setRestaurant_id(restaurant_id);
+		return restaurantservice.deleteRestaurant(restaurant);
 	}
 
-	@GetMapping("student/{student_id}")
-	public List<Student> allstudentByID(@PathVariable("student_id") int student_id,Student student) {
-		 student.setStudent_id(student_id);
-		 return studentservice.getStudentByID(student);
+	@GetMapping("restaurant/{restaurant_id}")
+	public List<Restaurant> allrestaurantByID(@PathVariable("restaurant_id") int restaurant_id,Restaurant restaurant) {
+		restaurant.setRestaurant_id(restaurant_id);
+		 return restaurantservice.getRestaurantByID(restaurant);
 		
 	}
 	
-	@PostMapping("update-student/{student_id}")
-	public boolean updateStudent(@RequestBody Student student,@PathVariable("student_id") int student_id) {
-		student.setStudent_id(student_id);
-		return studentservice.updateStudent(student);
+	@PostMapping("update-restaurant/{restaurant_id}")
+	public boolean updateRestaurant(@RequestBody Restaurant restaurant,@PathVariable("restaurant_id") int restaurant_id) {
+		restaurant.setRestaurant_id(restaurant_id);
+		return restaurantservice.updateRestaurant(restaurant);
 	}
 }
