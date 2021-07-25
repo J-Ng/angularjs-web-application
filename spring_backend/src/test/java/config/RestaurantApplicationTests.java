@@ -1,4 +1,4 @@
-package com.blackcurrant.poc.web.angular.config;
+package config;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

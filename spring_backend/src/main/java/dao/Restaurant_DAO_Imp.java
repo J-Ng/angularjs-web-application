@@ -1,4 +1,4 @@
-package com.blackcurrant.poc.web.angular.dao;
+package dao;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import com.blackcurrant.poc.web.angular.model.Restaurant;
+import model.Restaurant;
 
 @Repository
 public class Restaurant_DAO_Imp  implements Restaurant_DAO {

@@ -1,4 +1,4 @@
-package com.blackcurrant.poc.web.angular.controller;
+package controller;
 
 import java.util.List;
 
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.blackcurrant.poc.web.angular.model.Restaurant;
-import com.blackcurrant.poc.web.angular.service.Restaurant_Service;
+import model.Restaurant;
+import service.Restaurant_Service;
 
 @RestController
 @CrossOrigin(origins="http://localhost:4200")

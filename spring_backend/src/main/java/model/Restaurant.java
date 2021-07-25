@@ -1,4 +1,4 @@
-package com.blackcurrant.poc.web.angular.model;
+package model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

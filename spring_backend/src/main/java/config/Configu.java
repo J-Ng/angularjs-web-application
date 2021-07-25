@@ -1,4 +1,4 @@
-package com.blackcurrant.poc.web.angular.config;
+package config;
 
 import java.util.Properties;
 

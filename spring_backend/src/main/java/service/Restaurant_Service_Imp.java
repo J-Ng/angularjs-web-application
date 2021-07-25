@@ -1,4 +1,4 @@
-package com.blackcurrant.poc.web.angular.service;
+package service;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.blackcurrant.poc.web.angular.dao.Restaurant_DAO;
-import com.blackcurrant.poc.web.angular.model.Restaurant;
+import dao.Restaurant_DAO;
+import model.Restaurant;
 
 @Service
 @Transactional
