@@ -1,7 +1,8 @@
-export class Student {
+export class Restaurant {
 
-    student_id:number;
-    student_name:String;
-    student_email:String;
-    student_branch=String;
+    restaurant_id:number;
+    restaurant_name:String;
+    restaurant_address:String;
+    restaurant_contact_no=String;
+    restaurant_email=String;
 }

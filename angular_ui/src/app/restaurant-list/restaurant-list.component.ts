@@ -1,30 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import { StudentService } from '../student.service';
-import { Student } from '../student';
+import { RestaurantService } from '../restaurant.service';
+import { Restaurant } from '../restaurant';
 import { Observable,Subject } from "rxjs";
 
 import {FormControl,FormGroup,Validators} from '@angular/forms';
 
 @Component({
-  selector: 'app-student-list',
-  templateUrl: './student-list.component.html',
-  styleUrls: ['./student-list.component.css']
+  selector: 'app-restaurant-list',
+  templateUrl: './restaurant-list.component.html',
+  styleUrls: ['./restaurant-list.component.css']
 })
-export class StudentListComponent implements OnInit {
+export class RestaurantListComponent implements OnInit {
 
- constructor(private studentservice:StudentService) { }
+ constructor(private restaurantservice:RestaurantService) { }
 
-  studentsArray: any[] = [];
+  restaurantsArray: any[] = [];
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any>= new Subject();
 
 
-  students: Observable<Student[]>;
-  student : Student=new Student();
+  restaurants: Observable<Restaurant[]>;
+  restaurant : Restaurant=new Restaurant();
   deleteMessage=false;
-  studentlist:any;
-  isupdated = false;    
- 
+  restaurantlist:any;
+  isupdated = false;
+
 
   ngOnInit() {
     this.isupdated=false;
@@ -33,76 +33,80 @@ export class StudentListComponent implements OnInit {
       stateSave:true,
       lengthMenu:[[6, 16, 20, -1], [6, 16, 20, "All"]],
       processing: true
-    };   
-    this.studentservice.getStudentList().subscribe(data =>{
-    this.students =data;
+    };
+    this.restaurantservice.getRestaurantList().subscribe(data =>{
+    this.restaurants =data;
     this.dtTrigger.next();
     })
   }
-  
-  deleteStudent(id: number) {
-    this.studentservice.deleteStudent(id)
+
+  deleteRestaurant(id: number) {
+    this.restaurantservice.deleteRestaurant(id)
       .subscribe(
         data => {
           console.log(data);
           this.deleteMessage=true;
-          this.studentservice.getStudentList().subscribe(data =>{
-            this.students =data
+          this.restaurantservice.getRestaurantList().subscribe(data =>{
+            this.restaurants =data
             })
         },
         error => console.log(error));
   }
 
 
-  updateStudent(id: number){
-    this.studentservice.getStudent(id)
+  updateRestaurant(id: number){
+    this.restaurantservice.getRestaurant(id)
       .subscribe(
         data => {
-          this.studentlist=data           
+          this.restaurantlist=data
         },
         error => console.log(error));
   }
 
-  studentupdateform=new FormGroup({
-    student_id:new FormControl(),
-    student_name:new FormControl(),
-    student_email:new FormControl(),
-    student_branch:new FormControl()
+  restaurantupdateform=new FormGroup({
+    restaurant_id:new FormControl(),
+    restaurant_name:new FormControl(),
+    restaurant_email:new FormControl(),
+    restaurant_address:new FormControl(),
+    restaurant_contact_no:new FormControl()
   });
 
-  updateStu(updstu){
-    this.student=new Student(); 
-   this.student.student_id=this.StudentId.value;
-   this.student.student_name=this.StudentName.value;
-   this.student.student_email=this.StudentEmail.value;
-   this.student.student_branch=this.StudentBranch.value;
-   console.log(this.StudentBranch.value);
-   
+  updateRes(updres){
+    this.restaurant=new Restaurant();
+   this.restaurant.restaurant_id=this.RestaurantId.value;
+   this.restaurant.restaurant_name=this.RestaurantName.value;
+   this.restaurant.restaurant_email=this.RestaurantEmail.value;
+   this.restaurant.restaurant_address=this.RestaurantAddress.value;
+   this.restaurant.restaurant_contact_no=this.RestaurantContactNo.value;
 
-   this.studentservice.updateStudent(this.student.student_id,this.student).subscribe(
-    data => {     
+   this.restaurantservice.updateRestaurant(this.restaurant.restaurant_id,this.restaurant).subscribe(
+    data => {
       this.isupdated=true;
-      this.studentservice.getStudentList().subscribe(data =>{
-        this.students =data
+      this.restaurantservice.getRestaurantList().subscribe(data =>{
+        this.restaurants =data
         })
     },
     error => console.log(error));
   }
 
-  get StudentName(){
-    return this.studentupdateform.get('student_name');
+  get RestaurantName(){
+    return this.restaurantupdateform.get('restaurant_name');
   }
 
-  get StudentEmail(){
-    return this.studentupdateform.get('student_email');
+  get RestaurantEmail(){
+    return this.restaurantupdateform.get('restaurant_email');
   }
 
-  get StudentBranch(){
-    return this.studentupdateform.get('student_branch');
+  get RestaurantAddress(){
+    return this.restaurantupdateform.get('restaurant_address');
   }
 
-  get StudentId(){
-    return this.studentupdateform.get('student_id');
+  get RestaurantId(){
+    return this.restaurantupdateform.get('restaurant_id');
+  }
+
+  get RestaurantContactNo(){
+    return this.restaurantupdateform.get('restaurant_contact_no');
   }
 
   changeisUpdate(){

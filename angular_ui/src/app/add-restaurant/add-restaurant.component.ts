@@ -1,60 +1,64 @@
 import { Component, OnInit } from '@angular/core';
-import { StudentService } from '../student.service';
+import { RestaurantService } from '../restaurant.service';
 import {FormControl,FormGroup,Validators} from '@angular/forms';
-import { Student } from '../student';
+import { Restaurant } from '../restaurant';
 @Component({
-  selector: 'app-add-student',
-  templateUrl: './add-student.component.html',
-  styleUrls: ['./add-student.component.css']
+  selector: 'app-add-restaurant',
+  templateUrl: './add-restaurant.component.html',
+  styleUrls: ['./add-restaurant.component.css']
 })
-export class AddStudentComponent implements OnInit {
+export class AddRestaurantComponent implements OnInit {
 
-  constructor(private studentservice:StudentService) { }
+  constructor(private restaurantservice:RestaurantService) { }
 
-  student : Student=new Student();
+  restaurant : Restaurant=new Restaurant();
   submitted = false;
 
   ngOnInit() {
     this.submitted=false;
   }
 
-  studentsaveform=new FormGroup({
-    student_name:new FormControl('' , [Validators.required , Validators.minLength(5) ] ),
-    student_email:new FormControl('',[Validators.required,Validators.email]),
-    student_branch:new FormControl()
+  restaurantsaveform=new FormGroup({
+    restaurant_name:new FormControl('' , [Validators.required , Validators.minLength(5) ] ),
+    restaurant_email:new FormControl('',[Validators.required,Validators.email]),
+    restaurant_address:new FormControl(),
+    restaurant_contact_no:new FormControl()
   });
 
-  saveStudent(saveStudent){
-    this.student=new Student();   
-    this.student.student_name=this.StudentName.value;
-    this.student.student_email=this.StudentEmail.value;
-    this.student.student_branch=this.StudentBranch.value;
+  saveRestaurant(saveRestaurant){
+    this.restaurant=new Restaurant();
+    this.restaurant.restaurant_name=this.RestaurantName.value;
+    this.restaurant.restaurant_email=this.RestaurantEmail.value;
+    this.restaurant.restaurant_address=this.RestaurantAddress.value;
+    this.restaurant.restaurant_contact_no=this.RestaurantContactNo.value;
     this.submitted = true;
     this.save();
   }
 
-  
-
   save() {
-    this.studentservice.createStudent(this.student)
+    this.restaurantservice.createRestaurant(this.restaurant)
       .subscribe(data => console.log(data), error => console.log(error));
-    this.student = new Student();
+    this.restaurant = new Restaurant();
   }
 
-  get StudentName(){
-    return this.studentsaveform.get('student_name');
+  get RestaurantName(){
+    return this.restaurantsaveform.get('restaurant_name');
   }
 
-  get StudentEmail(){
-    return this.studentsaveform.get('student_email');
+  get RestaurantEmail(){
+    return this.restaurantsaveform.get('restaurant_email');
   }
 
-  get StudentBranch(){
-    return this.studentsaveform.get('student_branch');
+  get RestaurantAddress(){
+    return this.restaurantsaveform.get('restaurant_address');
   }
 
-  addStudentForm(){
+  get RestaurantContactNo(){
+    return this.restaurantsaveform.get('restaurant_contact_no');
+  }
+
+  addRestaurantForm(){
     this.submitted=false;
-    this.studentsaveform.reset();
+    this.restaurantsaveform.reset();
   }
 }

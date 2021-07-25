@@ -7,16 +7,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PartnerlistComponent } from './partnerlist/partnerlist.component';
 import {DataTablesModule} from 'angular-datatables';
-import { StudentListComponent } from './student-list/student-list.component';
-import { AddStudentComponent } from './add-student/add-student.component';
+import { RestaurantListComponent } from './restaurant-list/restaurant-list.component';
+import { AddRestaurantComponent } from './add-restaurant/add-restaurant.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     PartnerlistComponent,
-    StudentListComponent,
-    AddStudentComponent,
+    RestaurantListComponent,
+    AddRestaurantComponent,
   ],
   imports: [
     BrowserModule,

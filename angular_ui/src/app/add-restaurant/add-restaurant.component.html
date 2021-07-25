@@ -1,47 +1,60 @@
-<h3>Create Student</h3>
+<h3>Create Restaurant</h3>
 <div class="row">
   <div class="col-sm-4"></div>
   <div class="col-sm-4" >
     <div [hidden]="submitted" style="width: 400px;">
-      <form [formGroup]="studentsaveform" #savestudent (ngSubmit)="saveStudent(saveStudent)">
+      <form [formGroup]="restaurantsaveform" #saverestaurant (ngSubmit)="saveRestaurant(saveRestaurant)">
           <div class="form-group">
-              <label for="name">Student Name</label>
-              <input type="text" class="form-control"  formControlName="student_name" data-toggle="tooltip" 
-                 data-placement="right" title="Enter Student Name" >
-              <div class="alert alert-danger" *ngIf = "(StudentName.touched) && (StudentName.invalid)" 
+              <label for="name">Restaurant Name</label>
+              <input type="text" class="form-control"  formControlName="restaurant_name" data-toggle="tooltip"
+                 data-placement="right" title="Enter Restaurant Name" >
+              <div class="alert alert-danger" *ngIf = "(RestaurantName.touched) && (RestaurantName.invalid)"
                 style="margin-top: 5px;">
-                  <span *ngIf="StudentName.errors.required">Student Name is Required</span>
-                    <span *ngIf = "StudentName.errors.minlength"> 
-                        MinLength Error 
-                    </span>                   
+                  <span *ngIf="RestaurantName.errors.required">Restaurant Name is Required</span>
+                    <span *ngIf = "RestaurantName.errors.minlength">
+                        MinLength Error
+                    </span>
                 </div>
           </div>
-  
+
           <div class="form-group">
-              <label for="name">Student Email</label>
-              <input type="text" class="form-control" formControlName="student_email" 
-                data-toggle="tooltip" data-placement="right" title="Enter Student Email">
-                <div class="alert alert-danger" *ngIf = "(StudentEmail.touched) && (StudentEmail.invalid)" 
+              <label for="name">Restaurant Email</label>
+              <input type="text" class="form-control" formControlName="restaurant_email"
+                data-toggle="tooltip" data-placement="right" title="Enter Restaurant Email">
+                <div class="alert alert-danger" *ngIf = "(RestaurantEmail.touched) && (RestaurantEmail.invalid)"
                 style="margin-top: 5px;">
-                  <span *ngIf="StudentEmail.errors.required">Student Email is Required</span>
-                    <span *ngIf = "StudentEmail.errors.email"> 
-                        Invalid Email Format 
-                    </span>                   
+                  <span *ngIf="RestaurantEmail.errors.required">Restaurant Email is Required</span>
+                    <span *ngIf = "RestaurantEmail.errors.email">
+                        Invalid Email Format
+                    </span>
                 </div>
           </div>
-  
-          <div class="form-group">
-              <label for="branch">Student Branch</label>
-                <select class="form-control" formControlName="student_branch" data-toggle="tooltip" 
-                      data-placement="right" title="Select Student Branch">
-                    <option value="null">--Select Branch--</option>
-                  <option value="B-Tech">B-Tech</option>
-                  <option value="BCA">BCA</option>
-                  <option value="MCA">MCA</option>
-                  <option value="M-Tech">M-Tech</option>
-                </select>
+
+        <div class="form-group">
+          <label for="name">Restaurant Address</label>
+          <input type="text" class="form-control" formControlName="restaurant_address"
+                 data-toggle="tooltip" data-placement="right" title="Enter Restaurant Address">
+          <div class="alert alert-danger" *ngIf = "(RestaurantAddress.touched) && (RestaurantAddress.invalid)"
+               style="margin-top: 5px;">
+            <span *ngIf="RestaurantAddress.errors.required">Restaurant Address is Required</span>
+            <span *ngIf = "RestaurantAddress.errors.minlength">
+                        MinLength Error
+                    </span>
           </div>
-  
+        </div>
+
+        <div class="form-group">
+          <label for="name">Restaurant Contact No</label>
+          <input type="text" class="form-control" formControlName="restaurant_contact_no"
+                 data-toggle="tooltip" data-placement="right" title="Enter Restaurant Contact No">
+          <div class="alert alert-danger" *ngIf = "(RestaurantContactNo.touched) && (RestaurantContactNo.invalid)"
+               style="margin-top: 5px;">
+            <span *ngIf="RestaurantContactNo.errors.required">Restaurant Contact No is Required</span>
+            <span *ngIf = "RestaurantContactNo.errors.minlength">
+                        MinLength Error
+                    </span>
+          </div>
+        </div>
           <button type="submit" class="btn btn-success">Submit</button>
       </form>
   </div>
@@ -52,9 +65,9 @@
   <div class="col-sm-4"></div>
   <div class="col-sm-4">
       <div [hidden]="!submitted">
-         <h4>Student Added SuccessFully!</h4>
-         <button (click)="addStudentForm()" class='btn btn-primary'>Add More Student</button>
-      </div>      
+         <h4>Restaurant Added SuccessFully!</h4>
+         <button (click)="addRestaurantForm()" class='btn btn-primary'>Add More Restaurant</button>
+      </div>
   </div>
   <div class="col-sm-4"></div>
 </div>

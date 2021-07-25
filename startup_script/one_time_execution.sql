@@ -1,32 +1,4 @@
--- phpMyAdmin SQL Dump
--- version 4.7.4
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1:3306
--- Generation Time: Jun 08, 2019 at 08:42 AM
--- Server version: 5.7.19
--- PHP Version: 5.6.31
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `indigo`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `student`
---
+use poc_schema;
 
 DROP TABLE IF EXISTS `student`;
 CREATE TABLE IF NOT EXISTS `student` (
@@ -37,15 +9,20 @@ CREATE TABLE IF NOT EXISTS `student` (
   PRIMARY KEY (`student_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `student`
---
-
 INSERT INTO `student` (`student_id`, `student_branch`, `student_email`, `student_name`) VALUES
 (2, 'MCA', 'dolly@gmail.com', 'Dolly'),
 (3, 'B-Tech', 'sonoo@gmail.com', 'sonoo');
-COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+DROP TABLE IF EXISTS `restaurant`;
+CREATE TABLE IF NOT EXISTS `restaurant` (
+  `restaurant_id` int(11) NOT NULL AUTO_INCREMENT,
+  `restaurant_name` varchar(255) DEFAULT NULL,
+  `restaurant_address` varchar(255) DEFAULT NULL,
+  `restaurant_contact_no` varchar(255) DEFAULT NULL,
+  `restaurant_email` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`restaurant_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+INSERT INTO `restaurant` (`restaurant_name`, `restaurant_address`, `restaurant_contact_no`, `restaurant_email`) VALUES
+('Nacho\'s Tacos', '123 Elmo Drive', 'nachotaco@gmail.com', '995-9595'),
+('Ratatouile', '456 Wall Street', 'ratatoiule@gmail.com', '8700123');
