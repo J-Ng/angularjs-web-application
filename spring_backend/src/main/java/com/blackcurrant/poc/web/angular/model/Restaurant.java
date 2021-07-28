@@ -1,4 +1,4 @@
-package model;
+package com.blackcurrant.poc.web.angular.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,6 +16,7 @@ public class Restaurant {
     private String restaurant_email;
     private String restaurant_address;
     private String restaurant_contact_no;
+    private String restaurant_pic;
 
     public int getRestaurant_id() {
         return restaurant_id;
@@ -55,6 +56,14 @@ public class Restaurant {
 
     public void setRestaurant_contact_no(String restaurant_contact_no) {
         this.restaurant_contact_no = restaurant_contact_no;
+    }
+
+    public String getRestaurant_pic() {
+        return restaurant_pic;
+    }
+
+    public void setRestaurant_pic(String restaurant_pic) {
+        this.restaurant_pic = restaurant_pic;
     }
 
 

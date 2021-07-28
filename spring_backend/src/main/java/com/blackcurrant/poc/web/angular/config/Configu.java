@@ -1,4 +1,4 @@
-package config;
+package com.blackcurrant.poc.web.angular.config;
 
 import java.util.Properties;
 
@@ -21,12 +21,6 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @Configuration
 @EnableTransactionManagement
 @EnableAutoConfiguration(exclude = { HibernateJpaAutoConfiguration.class})
-@ComponentScans(value = { @ComponentScan("boot.entry"),
-	      @ComponentScan("Model"),
-	      @ComponentScan("Controller"),
-	      @ComponentScan("DAO"),
-	      @ComponentScan("Miscallaneous"),
-	      @ComponentScan("Service")})
 public class Configu {
 
 	 @Value("${db.driver}")
