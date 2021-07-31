@@ -9,6 +9,14 @@ import { PartnerlistComponent } from './partnerlist/partnerlist.component';
 import {DataTablesModule} from 'angular-datatables';
 import { RestaurantListComponent } from './restaurant-list/restaurant-list.component';
 import { AddRestaurantComponent } from './add-restaurant/add-restaurant.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
+import {OverlayModule} from '@angular/cdk/overlay';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -24,7 +32,16 @@ import { AddRestaurantComponent } from './add-restaurant/add-restaurant.componen
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    DataTablesModule
+    DataTablesModule,
+    MatCardModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatRippleModule,
+    MatNativeDateModule,
+    OverlayModule,
+    BrowserAnimationsModule,
+    FlexLayoutModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
