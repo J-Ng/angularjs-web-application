@@ -17,6 +17,7 @@ public class Restaurant {
     private String restaurant_address;
     private String restaurant_contact_no;
     private String restaurant_pic;
+    private String restaurant_desc;
 
     public int getRestaurant_id() {
         return restaurant_id;
@@ -64,6 +65,14 @@ public class Restaurant {
 
     public void setRestaurant_pic(String restaurant_pic) {
         this.restaurant_pic = restaurant_pic;
+    }
+
+    public String getRestaurant_desc() {
+        return restaurant_desc;
+    }
+
+    public void setRestaurant_desc(String restaurant_desc) {
+        this.restaurant_desc = restaurant_desc;
     }
 
 

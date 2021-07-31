@@ -68,7 +68,9 @@ export class RestaurantListComponent implements OnInit {
     restaurant_name:new FormControl(),
     restaurant_email:new FormControl(),
     restaurant_address:new FormControl(),
-    restaurant_contact_no:new FormControl()
+    restaurant_contact_no:new FormControl(),
+    restaurant_desc:new FormControl(),
+    restaurant_pic:new FormControl()
   });
 
   updateRes(updres){
@@ -78,6 +80,8 @@ export class RestaurantListComponent implements OnInit {
    this.restaurant.restaurant_email=this.RestaurantEmail.value;
    this.restaurant.restaurant_address=this.RestaurantAddress.value;
    this.restaurant.restaurant_contact_no=this.RestaurantContactNo.value;
+   this.restaurant.restaurant_desc=this.RestaurantDesc.value;
+   this.restaurant.restaurant_pic=this.RestaurantPic.value;
 
    this.restaurantservice.updateRestaurant(this.restaurant.restaurant_id,this.restaurant).subscribe(
     data => {
@@ -107,6 +111,14 @@ export class RestaurantListComponent implements OnInit {
 
   get RestaurantContactNo(){
     return this.restaurantupdateform.get('restaurant_contact_no');
+  }
+
+  get RestaurantDesc(){
+    return this.restaurantupdateform.get('restaurant_desc');
+  }
+
+  get RestaurantPic(){
+    return this.restaurantupdateform.get('restaurant_pic');
   }
 
   changeisUpdate(){

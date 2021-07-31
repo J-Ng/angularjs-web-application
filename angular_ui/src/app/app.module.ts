@@ -17,6 +17,8 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatInputModule} from '@angular/material/input';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatDividerModule} from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import {MatInputModule} from '@angular/material/input';
     OverlayModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    MatInputModule
+    MatInputModule,
+    MatPaginatorModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
